@@ -18,21 +18,14 @@
     </div>
 
     <div class="contentbox">
-      <?php
-      include("setting.php");
-      session_start();
-      if(!isset($_SESSION["login"])){
-      echo "You are not allowed to view this page.";
-      }else{
-      ?>
-      <form action="result_blog.php" method="POST">
-      <input type="text" name="blogname"><br><br>
-      <textarea name="blogtext" rows="30" cols="60"></textarea><br><br>
-      <input type="submit" value=" Save ">
+      <form action="login.php" method="POST">
+      Kullanıcı: <input type="text" name="username">
+      <br><br>
+      Parola: <input type="password" name="password" style="position:relative; left:15px;">
+      <br><br>
+      <input type="submit" value=" Login " style="position:relative; left:70px;">
       </form>
-      <?php
-      }
-      ?>
+
     </div>
 
 </body>

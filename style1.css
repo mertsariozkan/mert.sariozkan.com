@@ -1,0 +1,61 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	font-family:"Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+	font-size: 13px;
+	color: #000000;
+	background-color: #ccc;
+	background-repeat:repeat;
+}
+.header {
+    background-image: url("banner.png");
+    padding: 30px;
+    height: 200px;
+    text-align: center;
+    font-size: 35px;
+}
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.contentbox {
+    background-color: lightgrey;
+    width: 600px;
+    text-align: center;
+    margin: 30px;
+    border: 5px solid black;
+    padding: 25px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.column1 {
+    float: left;
+    width: 33%;
+    padding: 10px;
+
+}
+.column2 {
+    float: right;
+    width: 64%;
+    padding: 10px;
+
+}

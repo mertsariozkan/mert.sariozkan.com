@@ -25,14 +25,14 @@
       echo "You are not allowed to view this page.";
       }else{
       ?>
-      <form action="result_blog.php" method="POST">
-      <input type="text" name="blogname"><br><br>
-      <textarea name="blogtext" rows="30" cols="60"></textarea><br><br>
+      <form action="result_about.php" method="POST">
+      <textarea name="hakkimdatext" rows="30" cols="60"></textarea><br>
       <input type="submit" value=" Save ">
       </form>
       <?php
       }
       ?>
+
     </div>
 
 </body>

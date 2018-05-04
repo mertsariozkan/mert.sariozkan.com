@@ -10,22 +10,14 @@
     </div>
 
     <div class="topnav">
-      <a href="index.php">Homepage</a>
-      <a href="about.php">About</a>
-      <a href="blog.php">Blog</a>
-      <a href="projects.php">Projects</a>
-      <a href="contact.php">Contact</a>
+      <a href="#">Homepage</a>
+      <a href="#">About</a>
+      <a href="#">Blog</a>
+      <a href="#">Projects</a>
+      <a href="#">Contact</a>
     </div>
 
     <div class="contentbox">
-      <?php
-      session_start();
-      ob_start();
-      session_destroy();
-      echo "Logged out. You are redirected to homepage.";
-      header("Refresh: 2; url=index.php");
-      ob_end_flush();
-      ?>
 
     </div>
 

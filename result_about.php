@@ -18,29 +18,34 @@
     </div>
 
     <div class="contentbox">
+
       <?php
       $servername = "localhost";
       $username = "root";
       $password = "";
       $dbname = "mertsariozkan";
-      $adsoyad = $_POST["adsoyad"];
-      $mesaj = $_POST["mesaj"];
+      $hakkimdatext = $_POST["hakkimdatext"];
 
       // Create connection
       $conn = new mysqli($servername, $username, $password, $dbname);
       // Check connection
       if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
+          die("Connection failed: " . $conn->connect_error);
       }
-
-      $sql = "INSERT INTO mesajlar (adsoyad,mesaj) VALUES ('$adsoyad','$mesaj')";
+      if($hakkimdatext!=null) {
+      $sql = "DELETE FROM hakkimda";
+      if ($conn->query($sql) === TRUE) {
+          ;
+      } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+      $sql = "INSERT INTO hakkimda (ID,hakkimdatext) VALUES (1,'$hakkimdatext')";
 
       if ($conn->query($sql) === TRUE) {
-      echo "Message sended successfully. <br>";
-      echo "You are redirected to homepage.";
-      header("Refresh: 2; url=index.php");
+          echo "New record created successfully";
       } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+          echo "Error: " . $sql . "<br>" . $conn->error;
+      }
       }
 
       $conn->close();

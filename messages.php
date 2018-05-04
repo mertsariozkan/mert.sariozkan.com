@@ -19,13 +19,18 @@
 
     <div class="contentbox">
       <?php
+      include("setting.php");
+      session_start();
+      if(!isset($_SESSION["login"])){
+      echo "You are not allowed to view this page.";
+      }else{
+      ?>
+      <div style="padding:50px">
+      <?php
       $servername = "localhost";
       $username = "root";
       $password = "";
       $dbname = "mertsariozkan";
-      $adsoyad = $_POST["adsoyad"];
-      $mesaj = $_POST["mesaj"];
-
       // Create connection
       $conn = new mysqli($servername, $username, $password, $dbname);
       // Check connection
@@ -33,17 +38,25 @@
       die("Connection failed: " . $conn->connect_error);
       }
 
-      $sql = "INSERT INTO mesajlar (adsoyad,mesaj) VALUES ('$adsoyad','$mesaj')";
+      $sql = "SELECT adsoyad,mesaj,tarihsaat FROM mesajlar ORDER BY tarihsaat DESC";
+      $result = $conn->query($sql);
 
-      if ($conn->query($sql) === TRUE) {
-      echo "Message sended successfully. <br>";
-      echo "You are redirected to homepage.";
-      header("Refresh: 2; url=index.php");
-      } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+      if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+      echo $row["adsoyad"].":<br>";
+      echo $row["mesaj"].":<br>";
+      echo $row["tarihsaat"]."<br><br>";
+      }
       }
 
       $conn->close();
+
+
+      ?>
+      </div>
+      <?php
+      }
       ?>
 
     </div>
