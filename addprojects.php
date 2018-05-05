@@ -25,18 +25,14 @@
       echo "You are not allowed to view this page.";
       }else{
       ?>
-      <a href="index.php" style="Color:#000000;"> See website </a><br><br>
-      <a href="editabout.php" style="Color:#000000;"> Edit About Page </a><br><br>
-      <a href="editcontact.php" style="Color:#000000;"> Edit Contact Page </a><br><br>
-      <a href="messages.php" style="Color:#000000;"> Messages </a><br><br>
-      <a href="addblog.php" style="Color:#000000;"> Write Blog </a><br><br>
-      <a href="addprojects.php" style="Color:#000000;"> Add Project </a><br><br>
-      <input type="button" value=" Logout " onclick="location='logout.php'" />
-
+      <form action="result_projects.php" method="POST">
+      <input type="text" name="projectname"><br><br>
+      <textarea name="projecttext" rows="30" cols="60"></textarea><br><br>
+      <input type="submit" value=" Save ">
+      </form>
       <?php
       }
       ?>
-
     </div>
 
 </body>
