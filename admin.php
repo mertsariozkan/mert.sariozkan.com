@@ -25,7 +25,7 @@
       echo "You are not allowed to view this page.";
       }else{
       ?>
-      <a href="homepage.php" style="Color:#000000;"> See website </a><br><br>
+      <a href="index.php" style="Color:#000000;"> See website </a><br><br>
       <a href="editabout.php" style="Color:#000000;"> Edit About Page </a><br><br>
       <a href="editcontact.php" style="Color:#000000;"> Edit Contact Page </a><br><br>
       <a href="messages.php" style="Color:#000000;"> Messages </a><br><br>
