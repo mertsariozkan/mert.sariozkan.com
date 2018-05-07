@@ -30,6 +30,7 @@
       <a href="editcontact.php" style="Color:#000000;"> Edit Contact Page </a><br><br>
       <a href="messages.php" style="Color:#000000;"> Messages </a><br><br>
       <a href="addblog.php" style="Color:#000000;"> Write Blog </a><br><br>
+      <a href="editblogs.php" style="Color:#000000;"> Edit Blogs </a><br><br>
       <a href="addprojects.php" style="Color:#000000;"> Add Project </a><br><br>
       <input type="button" value=" Logout " onclick="location='logout.php'" />
 

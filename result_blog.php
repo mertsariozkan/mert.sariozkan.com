@@ -19,6 +19,7 @@
 
     <div class="contentbox">
       <?php
+      session_start();
       $servername = "localhost";
       $username = "root";
       $password = "";
@@ -33,15 +34,37 @@
           die("Connection failed: " . $conn->connect_error);
       }
 
+      if(!isset($_SESSION["edit"])) {
       if($blogtext!=null || $blogname!=null) {
-
       $sql = "INSERT INTO blog (baslik,icerik) VALUES ('$blogname','$blogtext')";
-
       if ($conn->query($sql) === TRUE) {
           echo "New record created successfully";
       } else {
           echo "Error: " . $sql . "<br>" . $conn->error;
+        }
       }
+    }
+    else {
+      $id = $_POST["id"];
+      if(isset($_POST["edit"])) {
+        $sql="UPDATE blog SET baslik='$blogname',icerik='$blogtext' WHERE ID='$id'";
+        if ($conn->query($sql) === TRUE) {
+            echo "Blog is updated.";
+            echo $id;
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+      }
+      else if(isset($_POST["delete"])) {
+        $sql="DELETE FROM blog WHERE ID='$id'";
+        if ($conn->query($sql) === TRUE) {
+            echo "Blog is deleted.";
+            echo $id;
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+      }
+        unset($_SESSION["edit"]);
       }
 
       $conn->close();
