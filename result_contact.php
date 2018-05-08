@@ -23,30 +23,31 @@
       $username = "root";
       $password = "";
       $dbname = "mertsariozkan";
-      $iletisimtext = $_POST["iletisimtext"];
 
-      // Create connection
       $conn = new mysqli($servername, $username, $password, $dbname);
-      // Check connection
+
       if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
       }
 
-      if($iletisimtext!=null) {
-      $sql = "DELETE FROM iletisim";
-      if ($conn->query($sql) === TRUE) {
-          ;
-      } else {
-          echo "Error: " . $sql . "<br>" . $conn->error;
-      }
+      if(isset($_POST["edit"])) {
+        $iletisimtext = $_POST["iletisimtext"];
+        $sql = "DELETE FROM iletisim";
+        if ($conn->query($sql) === TRUE) {
+            ;
+          } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+          }
 
-      $sql = "INSERT INTO iletisim (iletisimbilgileri) VALUES ('$iletisimtext')";
+          $sql = "INSERT INTO iletisim (iletisimbilgileri) VALUES ('$iletisimtext')";
 
-      if ($conn->query($sql) === TRUE) {
-          echo "New record created successfully";
+          if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+          } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+          }
       } else {
-          echo "Error: " . $sql . "<br>" . $conn->error;
-      }
+        echo "Nothing changed in Contact page.";
       }
 
       $conn->close();

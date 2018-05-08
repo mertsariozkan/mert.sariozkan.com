@@ -28,7 +28,7 @@
       <form action="result_blog.php" method="POST">
       <input type="text" name="blogname"><br><br>
       <textarea name="blogtext" rows="30" cols="60"></textarea><br><br>
-      <input type="submit" value=" Save ">
+      <input type="submit" name="add" value=" Save ">
       </form>
       <?php
       }

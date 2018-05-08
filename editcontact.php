@@ -27,7 +27,7 @@
       ?>
       <form action="result_contact.php" method="POST">
       <textarea name="iletisimtext" rows="30" cols="60"></textarea><br>
-      <input type="submit" value=" Save ">
+      <input type="submit" name="edit" value=" Save ">
       </form>
       <?php
       }

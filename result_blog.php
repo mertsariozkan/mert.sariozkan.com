@@ -24,47 +24,46 @@
       $username = "root";
       $password = "";
       $dbname = "mertsariozkan";
-      $blogtext = $_POST["blogtext"];
-      $blogname = $_POST["blogname"];
 
-      // Create connection
       $conn = new mysqli($servername, $username, $password, $dbname);
-      // Check connection
       if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
       }
 
-      if(!isset($_SESSION["edit"])) {
-      if($blogtext!=null || $blogname!=null) {
-      $sql = "INSERT INTO blog (baslik,icerik) VALUES ('$blogname','$blogtext')";
-      if ($conn->query($sql) === TRUE) {
-          echo "New record created successfully";
-      } else {
-          echo "Error: " . $sql . "<br>" . $conn->error;
+      if(isset($_POST["add"])) {
+        $blogtext = $_POST["blogtext"];
+        $blogname = $_POST["blogname"];
+        if($blogtext!=null || $blogname!=null) {
+          $sql = "INSERT INTO blog (baslik,icerik) VALUES ('$blogname','$blogtext')";
+          if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+          } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+          }
         }
       }
-    }
-    else {
-      $id = $_POST["id"];
-      if(isset($_POST["edit"])) {
+      else if(isset($_POST["edit"])) {
+        $blogtext = $_POST["blogtext"];
+        $blogname = $_POST["blogname"];
+        $id = $_POST["id"];
         $sql="UPDATE blog SET baslik='$blogname',icerik='$blogtext' WHERE ID='$id'";
         if ($conn->query($sql) === TRUE) {
             echo "Blog is updated.";
-            echo $id;
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
       }
       else if(isset($_POST["delete"])) {
+        $id = $_POST["id"];
         $sql="DELETE FROM blog WHERE ID='$id'";
         if ($conn->query($sql) === TRUE) {
             echo "Blog is deleted.";
-            echo $id;
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
       }
-        unset($_SESSION["edit"]);
+      else {
+        echo "Nothing changed in Blog page.";
       }
 
       $conn->close();

@@ -23,26 +23,25 @@
       $username = "root";
       $password = "";
       $dbname = "mertsariozkan";
-      $adsoyad = $_POST["adsoyad"];
-      $mesaj = $_POST["mesaj"];
 
-      // Create connection
       $conn = new mysqli($servername, $username, $password, $dbname);
-      // Check connection
       if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
       }
-
-      $sql = "INSERT INTO mesajlar (adsoyad,mesaj) VALUES ('$adsoyad','$mesaj')";
-
-      if ($conn->query($sql) === TRUE) {
-      echo "Message sended successfully. <br>";
-      echo "You are redirected to homepage.";
-      header("Refresh: 2; url=index.php");
+      if(isset($_POST["send"])) {
+        $adsoyad = $_POST["adsoyad"];
+        $mesaj = $_POST["mesaj"];
+        $sql = "INSERT INTO mesajlar (adsoyad,mesaj) VALUES ('$adsoyad','$mesaj')";
+        if ($conn->query($sql) === TRUE) {
+          echo "Message sended successfully. <br>";
+          echo "You are redirected to homepage.";
+          header("Refresh: 2; url=index.php");
+        } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+        }
       } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "There is nothing to send.";
       }
-
       $conn->close();
       ?>
 

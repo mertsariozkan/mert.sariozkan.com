@@ -23,16 +23,13 @@
       $username = "root";
       $password = "";
       $dbname = "mertsariozkan";
-      // Create connection
+
       $conn = new mysqli($servername, $username, $password, $dbname);
-      // Check connection
       if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
       }
-
-      include("setting.php");
       session_start();
-      $_SESSION["edit"] = "set";
+      include("setting.php");
       if(!isset($_SESSION["login"])){
       echo "You are not allowed to view this page.";
       }else{

@@ -9,7 +9,7 @@ body {
 	background-repeat:repeat;
 }
 .header {
-    background-image: url("banner.png");
+    background-image: url("banner.jpg");
     padding: 30px;
     height: 200px;
     text-align: center;
@@ -39,6 +39,8 @@ body {
     width: 600px;
     text-align: center;
     margin: 30px;
+		margin-left: auto;
+		margin-right: auto;
     border: 5px solid black;
     padding: 25px;
 }

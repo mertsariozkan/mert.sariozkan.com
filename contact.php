@@ -45,7 +45,7 @@
 					<input type="text" name="adsoyad"> <br><br>
 					Message:
 					<textarea name="mesaj" rows="10" cols="50" style="position:relative; left:17px;"></textarea><br><br>
-					<input type="submit" value=" Send " style="position:relative; left:200px;">
+					<input type="submit" value=" Send " name="send" style="position:relative; left:200px;">
 				</form>
 			</div>
 
